@@ -1,6 +1,15 @@
-import React from 'react'
+import React ,{useState} from 'react'
 
 export default function MainPage() {
+
+    //States for form fields
+    const [date,setDate] =useState(null);
+    const [sourceCurrency,setSourceCurrency] =useState("");
+    const [targetCurrency,setTargetCurrency] =useState("");
+    const [amountInSourceCurrency,setAmountInSourceCurrency] =useState(0);
+    const [amountInTargetCurrency,setAmountInTargetCurrency] =useState(0);
+
+
   return (
     <div>
       <h1 className=" lg:mx-32 text-5xl font-bold text-blue-400">Convert Your Currencies</h1>
@@ -17,15 +26,15 @@ export default function MainPage() {
                 <form>
                     
                     <div className="mb-5">
-                        <label htmlFor="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Date</label>
+                        <label htmlFor={date} class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Date</label>
                         
-                        <input type="Date" id="" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required />
+                        <input type="Date" id={date} name={date} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required />
                     </div>        
 
                     <div className="mb-5">
-                        <label htmlFor="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Source Currency</label>
+                        <label htmlFor={sourceCurrency} class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Source Currency</label>
                         
-                        <select name='' id="" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required 
+                        <select name={sourceCurrency} id={sourceCurrency} value={sourceCurrency} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required 
                         >
                             <option value="USD">USD</option>
                             <option value="EUR">EUR</option>
@@ -47,7 +56,8 @@ export default function MainPage() {
                     </div>    
 
                     <div className="mb-5">
-                        <label htmlFor="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Target Currency</label>
+                        <label htmlFor={targetCurrency} name = {targetCurrency} value={targetCurrency}
+                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Target Currency</label>
                         
                         <select name='' id="" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required 
                         >
@@ -73,9 +83,9 @@ export default function MainPage() {
 
 
                     <div className="mb-5">
-                        <label htmlFor="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Amount in Source Currency</label>
+                        <label htmlFor={amountInSourceCurrency} id={amountInSourceCurrency} name={amountInSourceCurrency} value={amountInSourceCurrency} class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Amount in Source Currency</label>
                         
-                        <input type="Text" id="" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Amount in Source Currency" required />
+                        <input type="Number" id="" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Amount in Source Currency" required />
                     </div>            
                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md" >
                         Get the target currency
